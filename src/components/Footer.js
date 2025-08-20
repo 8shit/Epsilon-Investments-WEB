@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import contentData from "../content.json";
-
-async function fetchRepoData(repoApiLink) {
-  const response = await fetch(repoApiLink);
-  const data = await response.json();
-  return data;
-}
 
 const Footer = () => {
   const general = contentData.general;
-  const repoLink = contentData?.repo_stats?.repo_link;
-  const repoApiLink = contentData?.repo_stats?.api_link;
-
   const email =
     general?.navbar_social_links?.email ||
     general?.email ||
     "contact@example.com";
 
-  const [repoData, setRepoData] = useState(null);
-
-  useEffect(() => {
-    if (!repoApiLink) return;
-    fetchRepoData(repoApiLink).then(setRepoData).catch(() => {});
-  }, [repoApiLink]);
-
   return (
     <footer>
-      {/* BlueWalker-style bottom-left contact link */}
+      {/* Bottom-left minimal contact link (BlueWalker style) */}
       <a href={`mailto:${email}`} className="contact-link-fixed" aria-label="Contact">
         Contact
       </a>
@@ -46,6 +30,7 @@ const Footer = () => {
               <div className="credits">
                 {contentData.footer.copyright_line} &copy;
               </div>
+              {/* repoLink/repoData UI removed to avoid eslint no-unused-vars */}
             </div>
           </div>
         </div>
