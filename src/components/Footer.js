@@ -21,11 +21,9 @@ const Footer = () => {
             <div className="copyright-box">
               <p className="copyright">
                 {contentData.footer.line_one}{" "}
-                <a href="https://github.com/KevinTrinh1227">
                   <strong>
                     {general.first_name} {general.middle_name} {general.last_name}
                   </strong>
-                </a>
               </p>
               <div className="credits">
                 {contentData.footer.copyright_line} &copy;
